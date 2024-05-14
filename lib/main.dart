@@ -1,9 +1,14 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news/servises/news_servises.dart';
 
 import 'features/home/home.dart';
 
-void main() {
+void main() async {
+  NewsServises newsServises = NewsServises(Dio());
+  await newsServises.getNews('general');
+
   runApp(const NewsApp());
 }
 
@@ -16,12 +21,11 @@ class NewsApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_ , child) {
+      builder: (_, child) {
         return const MaterialApp(
-      home: Home(),
-    );
+          home: Home(),
+        );
       },
-     
     );
   }
 }
