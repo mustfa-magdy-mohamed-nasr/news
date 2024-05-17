@@ -4,21 +4,47 @@ import 'package:news/utl/model/article_mdel.dart';
 class NewsServises {
   final Dio dio;
   final String apiKey = '2b91e31f819c4512a13aa57726304251';
-  final String dimin = 'https://newsapi.org/v2/top-headlines';
+  final String baseUrl = 'https://newsapi.org/v2/top-headlines';
   NewsServises(this.dio);
-  getNews(String category) async {
-    // ignore: unused_local_variable
-    Response response =
-        await dio.get('$dimin?country=us&apiKey=$apiKey&category=business');
-    Map<String, dynamic> jsonData = response.data;
-    NewsArticleModel(
-      author: jsonData['author'],
-      title: jsonData['title'],
-      description: jsonData['description'],
-      url: jsonData['url'],
-      urlToImage: jsonData['urlToImage'],
-      publishedAt: DateTime.parse(jsonData['publishedAt']),
-      content: jsonData['content'],
-    );
+  Future<List<ArticleModel>> getNews({required String category}) async {
+    try {
+      Response response =
+          await dio.get('$baseUrl?country=us&apiKey=$apiKey&category=business');
+      Map<String, dynamic> jsonData = response.data;
+      List<dynamic> articles = jsonData['articles'];
+      List<ArticleModel> articleList = [];
+      for (var article in articles) {
+        ArticleModel articleModel = ArticleModel.fromJson(article);
+        articleList.add(articleModel);
+      }
+      return articleList;
+    } catch (e) {
+      throw Exception(e.toString());
+    }
   }
 }
+/**Future<List<ArticleModel>> getNews({required String category}) async {
+    try {
+      Response response = await dio.get('$baseUrl?country=us&apiKey=$apiKey&category=$category');
+      List<dynamic> articles = response.data['articles'];
+      List<ArticleModel> articleList = articles.map((article) => ArticleModel.fromJson(article)).toList();
+      return articleList;
+    } catch (e) {
+      throw Exception('Failed to fetch news: $e');
+    }
+  }
+
+  esponse response =
+          await dio.get('$baseUrl?country=us&apiKey=$apiKey&category=business');
+      Map<String, dynamic> jsonData = response.data;
+      List<dynamic> articles = jsonData['articles'];
+      List<ArticleModel> articleList = [];
+      for (var article in articles) {
+        ArticleModel articleModel = ArticleModel.fromJson(article);
+        articleList.add(articleModel);
+      }
+    } catch (e) {
+      throw Exception('Failed to fetch news: $e');
+    }
+  }
+} */
