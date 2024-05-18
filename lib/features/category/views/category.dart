@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:news/features/category/views/widgets/grid_view_body.dart';
 import 'package:news/utl/widgets/bar_title_subtitle.dart';
 
-class CategoryView extends StatelessWidget {
-  const CategoryView({super.key});
+class Category extends StatelessWidget {
+  const Category({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/home/widgets/child_in_drawer.dart';
 import 'package:news/features/home_view/views/home_view.dart';
-import '../category/views/category_view.dart';
+import 'package:news/utl/cubits/cubit/get_news_cubit.dart';
+import '../category/views/category.dart';
 import '../save/views/save_view.dart';
 import '../searsh/views/search_view.dart';
 
@@ -18,13 +20,14 @@ class _HomeState extends State<Home> {
     const HomeView(),
     const SearchView(),
     const SaveView(),
-    const CategoryView(),
+    const Category(),
   ];
   final List<String> titl = ['Home', 'Search', 'Saved', 'Category'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: Colors.grey[200],
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -65,7 +68,12 @@ class _HomeState extends State<Home> {
           drawer: const Drawer(
             child: ChildInDrawer(),
           ),
-          body: _widgetOptions[_selectedIndex]),
+          body: RefreshIndicator(
+              onRefresh: () {
+                return BlocProvider.of<GetNewsCubit>(context)
+                    .getNews(catagory: 'general');
+              },
+              child: _widgetOptions[_selectedIndex])),
     );
   }
 }
