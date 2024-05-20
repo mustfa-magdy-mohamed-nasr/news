@@ -18,7 +18,7 @@ class ArticleModel {
   });
   factory ArticleModel.fromJson(json) {
     return ArticleModel(
-      author: json['author']??'',
+      author: json['author']??'Unknown',
       title: json['title']??'',
       description: json['description']??'',
       url: json['url'],

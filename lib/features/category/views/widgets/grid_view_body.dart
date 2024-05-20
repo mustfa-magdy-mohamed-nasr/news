@@ -1,38 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:news/features/category/views/widgets/category_item.dart';
+import 'package:news/utl/model/categry_model.dart';
 
 class GridViewBody extends StatelessWidget {
-  const GridViewBody({
+  GridViewBody({
     super.key,
   });
-  final List<String> image = const [
-    'assets/images/category/interior.jpg',
-    'assets/images/category/art.jpg',
-    'assets/images/category/entertainment.jpg',
-    'assets/images/category/fashion.jpg',
-    'assets/images/category/food.jpg',
-    'assets/images/category/health1.jpg',
-    'assets/images/category/politics.jpg',
-    'assets/images/category/science.jpg',
-    'assets/images/category/sports.jpg',
-    'assets/images/category/technology.jpg',
-    'assets/images/category/business.jpg',
-    'assets/images/category/travel.jpg',
-  ];
-
-  final List<String> imageTexts = const [
-    'Interior',
-    'Art',
-    'Entertainment',
-    'Fashion',
-    'Food',
-    'Health',
-    'Politics',
-    'Science',
-    'Sports',
-    'Technology',
-    'Business',
-    'Travel',
+  // ignore: non_constant_identifier_names
+  final List<CategoryModel> categorylist = [
+    CategoryModel(
+      image: 'assets/images/category/entertainment.jpg',
+      name: 'entertainment', //
+    ),
+    CategoryModel(
+      image: 'assets/images/category/health1.jpg',
+      name: 'health', //
+    ),
+    CategoryModel(
+      image: 'assets/images/category/politics.jpg',
+      name: 'politics',
+    ),
+    CategoryModel(
+      image: 'assets/images/category/science.jpg',
+      name: 'science', //
+    ),
+    CategoryModel(
+      image: 'assets/images/category/sports.jpg',
+      name: 'sports', //
+    ),
+    CategoryModel(
+      image: 'assets/images/category/technology.jpg',
+      name: 'technology', //
+    ),
+    CategoryModel(
+      image: 'assets/images/category/business.jpg',
+      name: 'business', //
+    ),
   ];
 
   @override
@@ -46,11 +49,10 @@ class GridViewBody extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return CategoryItem(
-            image: image[index],
-            imageTexts: imageTexts[index],
+            category: categorylist[index],
           );
         },
-        childCount: image.length,
+        childCount: categorylist.length,
       ),
     );
   }

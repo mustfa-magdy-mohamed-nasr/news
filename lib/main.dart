@@ -1,8 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news/servises/search_servises.dart';
 import 'package:news/tist.dart';
-import 'package:news/utl/cubits/cubit/get_news_cubit.dart';
+import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
+import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
+import 'package:news/utl/model/article_mdel.dart';
 
 import 'features/home/home.dart';
 
@@ -11,7 +15,6 @@ void main() async {
 }
 
 class NewsApp extends StatelessWidget {
-  
   const NewsApp({super.key});
 
   @override
@@ -21,8 +24,15 @@ class NewsApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return BlocProvider(
-          create: (context) => GetNewsCubit()..getNews(catagory: 'general'),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => GetNewsCubit()..getNews(catagory: 'general'),
+            ),
+            BlocProvider(
+              create: (context) => GetCategoryCubit(),
+            ),
+          ],
           child: const MaterialApp(
             // home: MyWidget(),
             home: Home(),
@@ -32,24 +42,3 @@ class NewsApp extends StatelessWidget {
     );
   }
 }
-/**
- * BlocProvider(
-      create: (context) => MemberCubit()..fetchAllMember(),
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        // theme: ThemeData.dark(),
-        home: ContactView(),
-        // initialRoute: '/',
-        // routes: {
-        //   '/': (context) => const ContactView(),
-        //   '/page1': (context) => const AddMemberView(),
-        //   '/page2': (context) => const DetalisView(),
-        //   '/page3': (context) => const EditView(),
-        //   // '/page2': (context) => Page2(),
-        // },
-      ),
-    );
-  }
-}
-
- */

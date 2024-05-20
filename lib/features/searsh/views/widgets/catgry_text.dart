@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/features/searsh/cubit/chang_text_cubit.dart';
+import 'package:news/utl/cubits/change_text/chang_text_cubit.dart';
 
 class CatgryText extends StatelessWidget {
   const CatgryText({

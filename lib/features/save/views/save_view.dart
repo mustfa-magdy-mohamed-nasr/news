@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
+import 'package:news/utl/model/article_mdel.dart';
 
 class SaveView extends StatelessWidget {
   const SaveView({super.key});
@@ -21,10 +22,10 @@ class SaveView extends StatelessWidget {
             ),
           ),
         ),
-        SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-          return const ItemSearchView(); // تمرير حالة النص هنا
-        }, childCount: 10)),
+        // SliverList(
+        //     delegate: SliverChildBuilderDelegate((context, index) {
+        //   return const ItemSearchView(articleModel: ArticleModel[],); // تمرير حالة النص هنا
+        // }, childCount: 10)),
       ],
     );
   }

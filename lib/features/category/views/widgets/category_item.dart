@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/features/category/category_view/category_view.dart';
+import 'package:news/features/category_view/category_view.dart';
+import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
+import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
+import 'package:news/utl/model/categry_model.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
-    required this.image,
-    required this.imageTexts,
+    required this.category,
   });
 
-  final String image;
-  final String imageTexts;
-
+  final CategoryModel category;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: (() {
+          BlocProvider.of<GetCategoryCubit>(context)
+              .getCategory(catagory: category.name??'');
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const CategoryView()));
         }),
@@ -29,7 +32,7 @@ class CategoryItem extends StatelessWidget {
             color: Colors.grey[300],
             borderRadius: BorderRadius.circular(16),
             image: DecorationImage(
-              image: AssetImage(image),
+              image: AssetImage(category.image??''),
               fit: BoxFit.cover,
             ),
           ),
@@ -42,7 +45,7 @@ class CategoryItem extends StatelessWidget {
                 color: Colors.grey.withOpacity(.5),
               ),
               child: Text(
-                imageTexts, // Text corresponding to the image
+                category.name??'', // Text corresponding to the image
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

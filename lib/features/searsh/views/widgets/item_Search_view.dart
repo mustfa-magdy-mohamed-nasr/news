@@ -1,40 +1,39 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news/utl/model/article_mdel.dart';
 
 class ItemSearchView extends StatelessWidget {
   const ItemSearchView({
     Key? key,
+    required this.articleModel,
   }) : super(key: key);
-  final String author = 'Mustafa Magdy Muhamed Nasr';
+  final ArticleModel articleModel;
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(10.w),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.asset(
-                'assets/images/coding_languages.webp',
-                fit: BoxFit.cover,
-                width: 110.w,
-                height: 80.h,
-              ),
-            ),
-          ),
-          Column(
+    // تأكد من أن urlToImage ليس فارغًا ويحتوي على عنوان URL صالح
+    String imageUrl = articleModel.urlToImage != null &&
+            articleModel.urlToImage!.isNotEmpty
+        ? articleModel.urlToImage!
+        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0mBLkHZThufMS8ayDKBbWsoEcJnA0huvTqLYJAl7HQw&s';
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Padding(
+          padding: EdgeInsets.all(10.w),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 200.w,
+                width: 180.w,
                 child: Text(
+                  articleModel.title ?? '',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  'fekandnlsnmse;oegifekandnlsnmse;oegifekandnlsnmse;oegifekandnlsnmse;oegifekandnlsnmse;oegi',
                   style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp,color: Colors.black),
                 ),
               ),
               Padding(
@@ -42,17 +41,52 @@ class ItemSearchView extends StatelessWidget {
                 child: SizedBox(
                   width: 170.w,
                   child: Text(
+                    'By:${articleModel.author}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    'By:$author',
-                    style: const TextStyle(color: Colors.grey),
+                    style:  TextStyle(color: Colors.grey,fontSize: 18.sp),
                   ),
                 ),
               ),
             ],
           ),
-        ],
-      ),
+        ),
+        SizedBox(
+          width: 120.w,
+          height: 100.h,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                imageUrl??'https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                fit: BoxFit.cover,
+                width: 350.w,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(
+                    child: CircularProgressIndicator(
+                      value: loadingProgress.expectedTotalBytes != null
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              loadingProgress.expectedTotalBytes!
+                          : null,
+                    ),
+                  );
+                },
+                errorBuilder: (context, error, stackTrace) => Image.asset(
+                  "assets/images/images.png",
+                  fit: BoxFit.fill,
+                  width: 300.w,
+                  height: 170.h,
+                ),
+              ),
+            ),
+          ),
+        ),
+        const Divider(
+          height: 10,
+        ),
+      ],
     );
   }
 }

@@ -32,8 +32,6 @@ class SliverListCategoryView extends StatelessWidget {
         child: BlocBuilder<GetCategoryCubit, GetCategoryState>(
           builder: (context, state) {
             if (state is GetCategryLoaded) {
-              // استخدم البيانات الجديدة المحملة في الحالة
-              final List<ArticleModel> newArticleModel = state.articles;
               return CustomScrollView(
                 physics: const BouncingScrollPhysics(),
                 slivers: [
@@ -41,10 +39,10 @@ class SliverListCategoryView extends StatelessWidget {
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
                         return ItemSearchView(
-                          articleModel: newArticleModel[index], // استخدم البيانات الجديدة
+                          articleModel: articleModel[index],
                         );
                       },
-                      childCount: newArticleModel.length, // استخدم البيانات الجديدة
+                      childCount: articleModel.length,
                     ),
                   ),
                 ],

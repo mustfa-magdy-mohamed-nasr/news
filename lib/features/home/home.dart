@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/home/widgets/child_in_drawer.dart';
 import 'package:news/features/home_view/views/home_view.dart';
-import 'package:news/utl/cubits/cubit/get_news_cubit.dart';
-import '../category/views/category.dart';
+import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
+import '../category/category.dart';
 import '../save/views/save_view.dart';
 import '../searsh/views/search_view.dart';
 

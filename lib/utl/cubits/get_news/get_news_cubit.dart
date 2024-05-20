@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/servises/news_servises.dart';
-import 'package:news/utl/cubits/cubit/get_news_state.dart';
+import 'package:news/utl/cubits/get_news/get_news_state.dart';
 import 'package:news/utl/model/article_mdel.dart';
+import 'package:news/utl/model/categry_model.dart';
 
 class GetNewsCubit extends Cubit<GetNewsState> {
   GetNewsCubit() : super(GetNewsInitial());
@@ -13,13 +16,14 @@ class GetNewsCubit extends Cubit<GetNewsState> {
       NewsServises newsServises = NewsServises(Dio());
 
       articleModel = await newsServises.getNews(category: catagory);
-      print(articleModel);
       emit(GetNewsLoaded());
     } catch (e) {
       emit(GetNewsFaluer(errorMessage: e.toString()));
       print(e.toString());
     }
   }
+
+  
 }
 /**
  *getNews({required String category}) async {
