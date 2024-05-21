@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/servises/search_servises.dart';
-import 'package:news/tist.dart';
+import 'package:news/generated/l10n.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
-import 'package:news/utl/model/article_mdel.dart';
 
 import 'features/home/home.dart';
 
@@ -33,9 +32,19 @@ class NewsApp extends StatelessWidget {
               create: (context) => GetCategoryCubit(),
             ),
           ],
-          child: const MaterialApp(
+          child: MaterialApp(
+            locale: const Locale('en'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: 'Flutter Demo',
+
             // home: MyWidget(),
-            home: Home(),
+            home: const Home(),
           ),
         );
       },
