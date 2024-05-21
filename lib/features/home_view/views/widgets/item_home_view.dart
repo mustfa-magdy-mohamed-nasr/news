@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/features/news_view/news_view.dart';
+import 'package:news/features/news_view/views/news_view.dart';
 import 'package:news/utl/model/article_mdel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ItemHomeView extends StatelessWidget {
   const ItemHomeView({
@@ -24,8 +27,12 @@ class ItemHomeView extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 10.h),
       child: GestureDetector(
         onTap: (() {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const NewsView()));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => NewsView(
+                        articleModel: articleModel,
+                      )));
         }),
         child: Column(
           children: [
@@ -79,6 +86,7 @@ class ItemHomeView extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
+                
               ],
             )
           ],

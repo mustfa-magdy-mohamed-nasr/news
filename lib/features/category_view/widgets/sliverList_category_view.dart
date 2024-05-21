@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
@@ -32,6 +33,8 @@ class SliverListCategoryView extends StatelessWidget {
         child: BlocBuilder<GetCategoryCubit, GetCategoryState>(
           builder: (context, state) {
             if (state is GetCategryLoaded) {
+              // استخدم البيانات الجديدة المحملة في الحالة
+              final List<ArticleModel> newArticleModel = state.articles;
               return CustomScrollView(
                 physics: const BouncingScrollPhysics(),
                 slivers: [
@@ -39,22 +42,26 @@ class SliverListCategoryView extends StatelessWidget {
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
                         return ItemSearchView(
-                          articleModel: articleModel[index],
+                          articleModel:
+                              newArticleModel[index], // استخدم البيانات الجديدة
                         );
                       },
-                      childCount: articleModel.length,
+                      childCount:
+                          newArticleModel.length, // استخدم البيانات الجديدة
                     ),
                   ),
                 ],
               );
-            } else if (state is GetCategoryInitial) {
+            } else if (state is GetCategoryLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else {
-              return const Center(
-                child: Text('Oops'),
+            } else if (state is GetCategryFaluer) {
+              return Center(
+                child: Text(state.errorMessage),
               );
+            } else {
+              return const Text('ops');
             }
           },
         ),

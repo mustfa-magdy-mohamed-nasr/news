@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news/features/category/category_view/widgets/sliverList_category_view.dart';
+import 'package:news/features/category_view/widgets/sliverList_category_view.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
 
