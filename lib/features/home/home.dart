@@ -59,6 +59,7 @@ class _HomeState extends State<Home> {
             },
           ),
           appBar: AppBar(
+            backgroundColor: Colors.grey[200],
             centerTitle: true,
             title: Text(
               titl[_selectedIndex],

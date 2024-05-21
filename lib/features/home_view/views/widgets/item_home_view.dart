@@ -6,7 +6,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/news_view/views/news_view.dart';
 import 'package:news/utl/model/article_mdel.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ItemHomeView extends StatelessWidget {
   const ItemHomeView({

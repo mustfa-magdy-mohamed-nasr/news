@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/searsh/views/widgets/no_search_body.dart';
-import 'package:news/utl/cubits/change_text/chang_text_cubit.dart';
-import 'package:news/features/searsh/views/widgets/all_catgry_text.dart';
 import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
 import 'package:news/utl/cubits/search_news/search_news_cubit.dart';
 import 'package:news/utl/model/article_mdel.dart';
