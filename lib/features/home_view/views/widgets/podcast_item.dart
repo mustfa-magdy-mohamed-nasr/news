@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/home_view/views/widgets/play_video.dart';
+import 'package:news/generated/l10n.dart';
 
 class PodcastItem extends StatelessWidget {
   const PodcastItem({
@@ -20,7 +21,7 @@ class PodcastItem extends StatelessWidget {
               bottomRight: Radius.circular(40),
             ),
             child: Opacity(
-              opacity: .90,
+              opacity: .80,
               child: Image.asset(
                 'assets/images/podcastImage.jpg',
                 fit: BoxFit.cover,
@@ -30,8 +31,9 @@ class PodcastItem extends StatelessWidget {
           ),
           Positioned(top: 100.h, left: 140.w, child: const PlayVideo()),
           Positioned(
-            top: 195.h,
-            left: 120.w,
+            top: 10.h,
+            left: 10.w,
+            right: 10.w,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -43,7 +45,7 @@ class PodcastItem extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "Podcast Of The Day",
+                    S.of(context).Podcast_Of_The_Day,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.grey[900],
@@ -59,13 +61,13 @@ class PodcastItem extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(15.w),
                 child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
+                    width: MediaQuery.of(context).size.width - 10.w,
                     child: Text(
-                      'أشهر مبرمج عربي، لم يدرس البرمجة  | أسامة الزيرو',
+                      S.of(context).Osama_Al_Zero,
                       style: TextStyle(
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 23.sp),
+                          fontWeight: FontWeight.w900,
+                          fontSize: 20.sp),
                     )),
               )),
         ],

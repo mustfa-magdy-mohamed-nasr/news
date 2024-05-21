@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/category_view/widgets/sliverList_category_view.dart';
+import 'package:news/generated/l10n.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
-import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
 
 class CategoryViewBody extends StatelessWidget {
   const CategoryViewBody({
@@ -47,14 +47,17 @@ class CategoryViewBody extends StatelessWidget {
                 ),
               ),
               Positioned(
-                  left: 10.w,
+                  // left: 10.w,
                   top: 80.h,
-                  child: const Text(
-                    'Explore Topics',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 42,
-                        fontWeight: FontWeight.bold),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      S.of(context).Explore_Topics,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 42,
+                          fontWeight: FontWeight.bold),
+                    ),
                   )),
               SliverListCategoryView(
                 articleModel:

@@ -66,7 +66,7 @@ class NewsView extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
-                      color: Colors.white,
+                      // color: Colors.white,
                       child: IconButton(
                           onPressed: () {
                             Navigator.pop(context);
@@ -80,11 +80,11 @@ class NewsView extends StatelessWidget {
                         log('llllll');
                       },
                       child: const Card(
-                          color: Colors.white,
+                          // color: Colors.white,
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.open_in_browser),
-                          )),
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.open_in_browser),
+                      )),
                     ),
                   ],
                 ),

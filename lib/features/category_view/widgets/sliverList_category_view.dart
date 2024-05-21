@@ -16,6 +16,8 @@ class SliverListCategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final theme = Theme.of(context);
+
     return Positioned(
       top: 150.h,
       left: 0,
@@ -24,7 +26,7 @@ class SliverListCategoryView extends StatelessWidget {
         height: 700.h,
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: theme.colorScheme.surface,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),

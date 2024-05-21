@@ -12,7 +12,7 @@ class CardListTileSwitch extends StatelessWidget {
 
   final IconData icon;
   final bool isSwitched;
-  final void Function(bool)? onChanged;
+  final void Function()? onChanged;
   final String title;
 
   @override
@@ -20,17 +20,18 @@ class CardListTileSwitch extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 10.h),
       child: Card(
-        color: Colors.grey[300],
+        // color: Colors.grey[300],
         child: ListTile(
-          leading: Icon(
-            Icons.change_circle_outlined,
-            color: Colors.grey[600],
-          ),
+          leading: Icon(icon
+              // color: Colors.grey[600],
+              ),
           title: Text(title),
-          trailing: Switch(
-            activeColor: const Color(0xff5F60c8),
-            value: isSwitched,
-            onChanged: onChanged,
+          trailing: IconButton(
+            onPressed: onChanged,
+            icon: const Icon(
+              Icons.change_circle_outlined,
+              color: Color(0xff5F60c8),
+            ),
           ),
         ),
       ),

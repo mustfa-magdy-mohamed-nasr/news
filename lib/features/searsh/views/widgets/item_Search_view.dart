@@ -13,11 +13,12 @@ class ItemSearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // تأكد من أن urlToImage ليس فارغًا ويحتوي على عنوان URL صالح
     String imageUrl = articleModel.urlToImage != null &&
             articleModel.urlToImage!.isNotEmpty
         ? articleModel.urlToImage!
         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0mBLkHZThufMS8ayDKBbWsoEcJnA0huvTqLYJAl7HQw&s';
+
+    final theme = Theme.of(context);
 
     return GestureDetector(
       onTap: (() {
@@ -28,78 +29,87 @@ class ItemSearchView extends StatelessWidget {
                       articleModel: articleModel,
                     )));
       }),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(10.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 180.w,
-                  child: Text(
-                    articleModel.title ?? '',
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+      child: Card(
+        child: Padding(
+          padding: EdgeInsets.all(5.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 180.w,
+                    child: Text(
+                      articleModel.title ?? '',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.sp,
-                        color: Colors.black),
+                        color: theme
+                            .textTheme.bodyLarge?.color, // Color based on theme
+                      ),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5.h),
-                  child: SizedBox(
-                    width: 170.w,
-                    child: Text(
-                      'By:${articleModel.author}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(color: Colors.grey, fontSize: 18.sp),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    child: SizedBox(
+                      width: 170.w,
+                      child: Text(
+                        'By: ${articleModel.author}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          color: theme.textTheme.bodySmall
+                              ?.color, // Color based on theme
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 120.w,
+                height: 100.h,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      width: 350.w,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
+                        );
+                      },
+                      errorBuilder: (context, error, stackTrace) => Image.asset(
+                        "assets/images/images.png",
+                        fit: BoxFit.fill,
+                        width: 300.w,
+                        height: 170.h,
+                      ),
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 120.w,
-            height: 100.h,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  imageUrl ??
-                      'https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                  fit: BoxFit.cover,
-                  width: 350.w,
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return Center(
-                      child: CircularProgressIndicator(
-                        value: loadingProgress.expectedTotalBytes != null
-                            ? loadingProgress.cumulativeBytesLoaded /
-                                loadingProgress.expectedTotalBytes!
-                            : null,
-                      ),
-                    );
-                  },
-                  errorBuilder: (context, error, stackTrace) => Image.asset(
-                    "assets/images/images.png",
-                    fit: BoxFit.fill,
-                    width: 300.w,
-                    height: 170.h,
-                  ),
-                ),
               ),
-            ),
+              const Divider(
+                height: 10,
+              ),
+            ],
           ),
-          const Divider(
-            height: 10,
-          ),
-        ],
+        ),
       ),
     );
   }

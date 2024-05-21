@@ -1,6 +1,11 @@
 class CategoryModel {
-  final String? image;
-  final String? name;
+  final String image;
+  final String getName;
+  final String nakName;
 
-  CategoryModel({required this.image, required this.name});
+  CategoryModel({
+    required this.nakName,
+    required this.getName,
+    required this.image,
+  });
 }

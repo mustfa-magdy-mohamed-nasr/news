@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/generated/l10n.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
+import 'package:news/utl/cubits/locale_cubi/locale_cubit.dart';
 
 import 'features/home/home.dart';
 
@@ -31,23 +32,64 @@ class NewsApp extends StatelessWidget {
             BlocProvider(
               create: (context) => GetCategoryCubit(),
             ),
+            BlocProvider(
+              create: (context) => LocaleCubit(),
+            ),
+            BlocProvider(
+              create: (context) => ThemeCubit(),
+            ),
           ],
-          child: MaterialApp(
-            locale: const Locale('en'),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            title: 'Flutter Demo',
-
-            // home: MyWidget(),
-            home: const Home(),
+          child: BlocBuilder<ThemeCubit, AppTheme>(
+            builder: (context, themeState) {
+              return BlocBuilder<LocaleCubit, Locale>(
+                builder: (context, localeState) {
+                  return MaterialApp(
+                    title: 'Flutter Theme and Locale Demo',
+                    theme: themeState == AppTheme.Light
+                        ? ThemeData.light()
+                        : ThemeData.dark(),
+                    locale: localeState,
+                    supportedLocales: const [
+                      Locale('en'),
+                      Locale('ar'),
+                    ],
+                    localizationsDelegates: const [
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                      S.delegate,
+                    ],
+                    home: const Home(),
+                  );
+                },
+              );
+            },
           ),
         );
       },
     );
   }
 }
+/**MultiBlocBuilder(
+        builders: {
+          'theme': (context, themeState) => MaterialApp(
+            title: 'Flutter Theme Demo',
+            theme: themeState == AppTheme.Light
+                ? ThemeData.light()
+                : ThemeData.dark(),
+            home: const Home(),
+          ),
+          'locale': (context, localeState) => MaterialApp(
+            locale: localeState,
+            supportedLocales: const [
+              Locale('en'),
+              Locale('ar'),
+            ],
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              AppLocalizations.delegate,
+            ],
+            home: const Home(),
+          ), */

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/searsh/views/widgets/no_search_body.dart';
 import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
+import 'package:news/generated/l10n.dart';
 import 'package:news/utl/cubits/search_news/search_news_cubit.dart';
 import 'package:news/utl/model/article_mdel.dart';
 import 'package:news/utl/widgets/bar_title_subtitle.dart';
@@ -17,19 +18,19 @@ class SearchView extends StatelessWidget {
       child: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   BarTitelSubtitle(
-                    title: 'Discover',
-                    subtitle: 'Search for news from all over the world..',
+                    title: S.of(context).Discover,
+                    subtitle: S.of(context).Search_for_news_from,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.all(5.0),
                     child: CustomTextField(),
                   ),
@@ -61,13 +62,13 @@ class SearchView extends StatelessWidget {
               } else if (state is GetCategoryLoading) {
                 return const SliverToBoxAdapter(
                   child: Center(
-                    child:CircularProgressIndicator(),
+                    child: CircularProgressIndicator(),
                   ),
                 );
               } else {
-                return const SliverToBoxAdapter(
+                return  SliverToBoxAdapter(
                   child: Center(
-                    child: Text('Oops'),
+                    child: Text(S.of(context).Oops),
                   ),
                 );
               }

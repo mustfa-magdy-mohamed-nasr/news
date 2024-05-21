@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news/generated/l10n.dart';
 import 'package:news/utl/cubits/search_news/search_news_cubit.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -19,7 +20,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: const Icon(Icons.format_list_bulleted),
         prefixIcon: const Icon(Icons.search),
-        label: const Text('Search'),
+        label: Text(S.of(context).search),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
         ),

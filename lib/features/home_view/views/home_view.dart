@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news/generated/l10n.dart';
 
 import '../../home_view/views/widgets/breaking_list_horizintal.dart';
 import '../../home_view/views/widgets/podcast_item.dart';
@@ -17,7 +18,7 @@ class HomeView extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(20.w),
             child: Text(
-              'Breaking News...',
+              S.of(context).breaking,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
             ),
           ),

@@ -21,5 +21,52 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Airstrikes": MessageLookupByLibrary.simpleMessage("Airstrikes"),
+        "Author": MessageLookupByLibrary.simpleMessage("Author:"),
+        "Border_Tensions":
+            MessageLookupByLibrary.simpleMessage("Border Tensions"),
+        "COVID_Cure": MessageLookupByLibrary.simpleMessage("COVID Cure"),
+        "Category": MessageLookupByLibrary.simpleMessage("Category"),
+        "Ceasefire_Talks":
+            MessageLookupByLibrary.simpleMessage("Ceasefire Talks"),
+        "Civilian_Casualties":
+            MessageLookupByLibrary.simpleMessage("Civilian Casualties"),
+        "Diplomatic_Responses":
+            MessageLookupByLibrary.simpleMessage("Diplomatic Responses"),
+        "Discover": MessageLookupByLibrary.simpleMessage("Discover"),
+        "Explore_Topics":
+            MessageLookupByLibrary.simpleMessage("Explore Topics"),
+        "Gaza_Conflict": MessageLookupByLibrary.simpleMessage("Gaza Conflict"),
+        "Home": MessageLookupByLibrary.simpleMessage("Home"),
+        "Humanitarian_Aid":
+            MessageLookupByLibrary.simpleMessage("Humanitarian Aid"),
+        "Language": MessageLookupByLibrary.simpleMessage("العربيه"),
+        "Oops": MessageLookupByLibrary.simpleMessage("Oops"),
+        "Osama_Al_Zero": MessageLookupByLibrary.simpleMessage(
+            "The most famous Arab programmer, programming has not changed Osama Al-Zero"),
+        "Palestine": MessageLookupByLibrary.simpleMessage("Palestine"),
+        "Peace_Efforts": MessageLookupByLibrary.simpleMessage("Peace Efforts"),
+        "Podcast_Of_The_Day":
+            MessageLookupByLibrary.simpleMessage("Podcast Of The Day"),
+        "Popular": MessageLookupByLibrary.simpleMessage("Popular"),
+        "Reconstruction":
+            MessageLookupByLibrary.simpleMessage("Reconstruction"),
+        "Saved": MessageLookupByLibrary.simpleMessage("Saved"),
+        "Search": MessageLookupByLibrary.simpleMessage("Search"),
+        "Search_for_news_from": MessageLookupByLibrary.simpleMessage(
+            "Search for news from all over the world.."),
+        "all_Category": MessageLookupByLibrary.simpleMessage("All Category"),
+        "breaking": MessageLookupByLibrary.simpleMessage("Breaking News..."),
+        "business": MessageLookupByLibrary.simpleMessage("business"),
+        "entertainment": MessageLookupByLibrary.simpleMessage("Entertainment"),
+        "health": MessageLookupByLibrary.simpleMessage("Healthy"),
+        "news_and_podcast":
+            MessageLookupByLibrary.simpleMessage("News and podcast"),
+        "politics": MessageLookupByLibrary.simpleMessage("politics"),
+        "science": MessageLookupByLibrary.simpleMessage("science"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "sports": MessageLookupByLibrary.simpleMessage("sports"),
+        "technology": MessageLookupByLibrary.simpleMessage("technology")
+      };
 }

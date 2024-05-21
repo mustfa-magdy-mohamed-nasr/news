@@ -49,6 +49,356 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Home`
+  String get Home {
+    return Intl.message(
+      'Home',
+      name: 'Home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get Search {
+    return Intl.message(
+      'Search',
+      name: 'Search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved`
+  String get Saved {
+    return Intl.message(
+      'Saved',
+      name: 'Saved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get Category {
+    return Intl.message(
+      'Category',
+      name: 'Category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Breaking News...`
+  String get breaking {
+    return Intl.message(
+      'Breaking News...',
+      name: 'breaking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Author:`
+  String get Author {
+    return Intl.message(
+      'Author:',
+      name: 'Author',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News and podcast`
+  String get news_and_podcast {
+    return Intl.message(
+      'News and podcast',
+      name: 'news_and_podcast',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All Category`
+  String get all_Category {
+    return Intl.message(
+      'All Category',
+      name: 'all_Category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Entertainment`
+  String get entertainment {
+    return Intl.message(
+      'Entertainment',
+      name: 'entertainment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Healthy`
+  String get health {
+    return Intl.message(
+      'Healthy',
+      name: 'health',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `politics`
+  String get politics {
+    return Intl.message(
+      'politics',
+      name: 'politics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `science`
+  String get science {
+    return Intl.message(
+      'science',
+      name: 'science',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sports`
+  String get sports {
+    return Intl.message(
+      'sports',
+      name: 'sports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `technology`
+  String get technology {
+    return Intl.message(
+      'technology',
+      name: 'technology',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `business`
+  String get business {
+    return Intl.message(
+      'business',
+      name: 'business',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore Topics`
+  String get Explore_Topics {
+    return Intl.message(
+      'Explore Topics',
+      name: 'Explore_Topics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Podcast Of The Day`
+  String get Podcast_Of_The_Day {
+    return Intl.message(
+      'Podcast Of The Day',
+      name: 'Podcast_Of_The_Day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The most famous Arab programmer, programming has not changed Osama Al-Zero`
+  String get Osama_Al_Zero {
+    return Intl.message(
+      'The most famous Arab programmer, programming has not changed Osama Al-Zero',
+      name: 'Osama_Al_Zero',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover`
+  String get Discover {
+    return Intl.message(
+      'Discover',
+      name: 'Discover',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for news from all over the world..`
+  String get Search_for_news_from {
+    return Intl.message(
+      'Search for news from all over the world..',
+      name: 'Search_for_news_from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oops`
+  String get Oops {
+    return Intl.message(
+      'Oops',
+      name: 'Oops',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get Popular {
+    return Intl.message(
+      'Popular',
+      name: 'Popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gaza Conflict`
+  String get Gaza_Conflict {
+    return Intl.message(
+      'Gaza Conflict',
+      name: 'Gaza_Conflict',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ceasefire Talks`
+  String get Ceasefire_Talks {
+    return Intl.message(
+      'Ceasefire Talks',
+      name: 'Ceasefire_Talks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Humanitarian Aid`
+  String get Humanitarian_Aid {
+    return Intl.message(
+      'Humanitarian Aid',
+      name: 'Humanitarian_Aid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Border Tensions`
+  String get Border_Tensions {
+    return Intl.message(
+      'Border Tensions',
+      name: 'Border_Tensions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Airstrikes`
+  String get Airstrikes {
+    return Intl.message(
+      'Airstrikes',
+      name: 'Airstrikes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Peace Efforts`
+  String get Peace_Efforts {
+    return Intl.message(
+      'Peace Efforts',
+      name: 'Peace_Efforts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Civilian Casualties`
+  String get Civilian_Casualties {
+    return Intl.message(
+      'Civilian Casualties',
+      name: 'Civilian_Casualties',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reconstruction`
+  String get Reconstruction {
+    return Intl.message(
+      'Reconstruction',
+      name: 'Reconstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Diplomatic Responses`
+  String get Diplomatic_Responses {
+    return Intl.message(
+      'Diplomatic Responses',
+      name: 'Diplomatic_Responses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `COVID Cure`
+  String get COVID_Cure {
+    return Intl.message(
+      'COVID Cure',
+      name: 'COVID_Cure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Palestine`
+  String get Palestine {
+    return Intl.message(
+      'Palestine',
+      name: 'Palestine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `العربيه`
+  String get Language {
+    return Intl.message(
+      'العربيه',
+      name: 'Language',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

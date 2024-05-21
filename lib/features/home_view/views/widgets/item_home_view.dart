@@ -71,6 +71,7 @@ class ItemHomeView extends StatelessWidget {
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    textDirection: TextDirection.ltr,
                   ),
                 ),
                 SizedBox(
@@ -83,9 +84,9 @@ class ItemHomeView extends StatelessWidget {
                     style: const TextStyle(color: Colors.grey),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
+                    textDirection: TextDirection.ltr,
                   ),
                 ),
-                
               ],
             )
           ],

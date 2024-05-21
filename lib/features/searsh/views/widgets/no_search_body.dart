@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/searsh/views/widgets/popular_card.dart';
+import 'package:news/generated/l10n.dart';
 import 'package:news/utl/cubits/search_news/search_news_cubit.dart';
 
 class NoSearchBody extends StatelessWidget {
@@ -14,11 +15,12 @@ class NoSearchBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             children: [
               Text(
-                "Popular",
-                style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+                S.of(context).Popular,
+                style:
+                    const TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
               )
             ],
           ),
@@ -27,34 +29,17 @@ class NoSearchBody extends StatelessWidget {
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Gaza Conflict');
+                      .searchNews(query: S.of(context).Gaza_Conflict);
                 },
-                titl: "Gaza Conflict",
+                titl: S.of(context).Gaza_Conflict,
               ),
               PopularCard(
                 onTap: () {
-                  BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Ceasefire Talks');
+                  BlocProvider.of<SearchNewsCubit>(context).searchNews(
+                    query: S.of(context).Ceasefire_Talks,
+                  );
                 },
-                titl: "Ceasefire Talks",
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              PopularCard(
-                onTap: () {
-                  BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Humanitarian Aid');
-                },
-                titl: "Humanitarian Aid",
-              ),
-              PopularCard(
-                onTap: () {
-                  BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Border Tensions');
-                },
-                titl: "Border Tensions",
+                titl: S.of(context).Ceasefire_Talks,
               ),
             ],
           ),
@@ -63,34 +48,16 @@ class NoSearchBody extends StatelessWidget {
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Airstrikes');
+                      .searchNews(query: S.of(context).Humanitarian_Aid);
                 },
-                titl: "Airstrikes",
+                titl: S.of(context).Humanitarian_Aid,
               ),
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Peace Efforts');
+                      .searchNews(query: S.of(context).Border_Tensions);
                 },
-                titl: "Peace Efforts",
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              PopularCard(
-                onTap: () {
-                  BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Civilian Casualties');
-                },
-                titl: "Civilian Casualties",
-              ),
-              PopularCard(
-                onTap: () {
-                  BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Reconstruction');
-                },
-                titl: "Reconstruction",
+                titl: S.of(context).Border_Tensions,
               ),
             ],
           ),
@@ -99,16 +66,51 @@ class NoSearchBody extends StatelessWidget {
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
-                      .searchNews(query: 'Diplomatic Responses');
+                      .searchNews(query: S.of(context).Airstrikes);
                 },
-                titl: "Diplomatic Responses",
+                titl: S.of(context).Airstrikes,
+              ),
+              PopularCard(
+                onTap: () {
+                  BlocProvider.of<SearchNewsCubit>(context)
+                      .searchNews(query: S.of(context).Peace_Efforts);
+                },
+                titl: S.of(context).Peace_Efforts,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              PopularCard(
+                  onTap: () {
+                    BlocProvider.of<SearchNewsCubit>(context)
+                        .searchNews(query: S.of(context).Peace_Efforts);
+                  },
+                  titl: S.of(context).Peace_Efforts),
+              PopularCard(
+                onTap: () {
+                  BlocProvider.of<SearchNewsCubit>(context)
+                      .searchNews(query: S.of(context).Reconstruction);
+                },
+                titl: S.of(context).Reconstruction,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              PopularCard(
+                onTap: () {
+                  BlocProvider.of<SearchNewsCubit>(context)
+                      .searchNews(query: S.of(context).Diplomatic_Responses);
+                },
+                titl: S.of(context).Diplomatic_Responses,
               ),
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
                       .searchNews(query: 'COVID Cure');
                 },
-                titl: "COVID Cure",
+                titl: S.of(context).COVID_Cure,
               ),
             ],
           ),

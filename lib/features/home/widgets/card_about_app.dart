@@ -10,14 +10,14 @@ class CardAboutApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 10.w, right: 10.w, top: 10.h),
-      child: Card(
-        color: Colors.grey[300],
+      child: const Card(
+        // color: Colors.grey[300],
         child: ListTile(
           leading: Icon(
             Icons.info_outline,
-            color: Colors.grey[600],
+            // color: Colors.grey[600],
           ),
-          title: const Text('About App'),
+          title: Text('About App'),
         ),
       ),
     );

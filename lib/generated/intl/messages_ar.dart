@@ -21,5 +21,50 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Airstrikes": MessageLookupByLibrary.simpleMessage("الغارات الجوية"),
+        "Author": MessageLookupByLibrary.simpleMessage("الكاتب:"),
+        "Border_Tensions":
+            MessageLookupByLibrary.simpleMessage("توترات الحدود"),
+        "COVID_Cure": MessageLookupByLibrary.simpleMessage("علاج كورونا"),
+        "Category": MessageLookupByLibrary.simpleMessage("التصنيف"),
+        "Ceasefire_Talks":
+            MessageLookupByLibrary.simpleMessage("محادثات وقف إطلاق النار"),
+        "Civilian_Casualties":
+            MessageLookupByLibrary.simpleMessage("ضحايا مدنيين"),
+        "Diplomatic_Responses":
+            MessageLookupByLibrary.simpleMessage("الردود الدبلوماسية"),
+        "Discover": MessageLookupByLibrary.simpleMessage("اكتشف"),
+        "Explore_Topics":
+            MessageLookupByLibrary.simpleMessage("استكشاف المواضيع"),
+        "Gaza_Conflict": MessageLookupByLibrary.simpleMessage("الصراع في غزة"),
+        "Home": MessageLookupByLibrary.simpleMessage("الصفحه الرئسيه"),
+        "Humanitarian_Aid":
+            MessageLookupByLibrary.simpleMessage("المساعدات الإنسانية"),
+        "Language": MessageLookupByLibrary.simpleMessage("English"),
+        "Oops": MessageLookupByLibrary.simpleMessage("أوبس"),
+        "Osama_Al_Zero": MessageLookupByLibrary.simpleMessage(
+            "أشهر مبرمج عربي، لم يدرس البرمجة | أسامة الزيرو"),
+        "Peace_Efforts": MessageLookupByLibrary.simpleMessage("جهود السلام"),
+        "Podcast_Of_The_Day":
+            MessageLookupByLibrary.simpleMessage("بودكاست اليوم"),
+        "Popular": MessageLookupByLibrary.simpleMessage("الشائع"),
+        "Reconstruction": MessageLookupByLibrary.simpleMessage("إعادة الإعمار"),
+        "Saved": MessageLookupByLibrary.simpleMessage("المحفوظات"),
+        "Search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "Search_for_news_from": MessageLookupByLibrary.simpleMessage(
+            "ابحث عن أخبار من كل أنحاء العالم.."),
+        "all_Category": MessageLookupByLibrary.simpleMessage("كل التصنيفات"),
+        "breaking": MessageLookupByLibrary.simpleMessage("أخبار عاجلة..."),
+        "business": MessageLookupByLibrary.simpleMessage("الأعمال"),
+        "entertainment": MessageLookupByLibrary.simpleMessage("الترفيه"),
+        "health": MessageLookupByLibrary.simpleMessage("الصحة"),
+        "news_and_podcast": MessageLookupByLibrary.simpleMessage(
+            "  الأخبار والبودكاست بالانجليزي"),
+        "politics": MessageLookupByLibrary.simpleMessage("السياسة"),
+        "science": MessageLookupByLibrary.simpleMessage("العلم"),
+        "search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "sports": MessageLookupByLibrary.simpleMessage("الرياضة"),
+        "technology": MessageLookupByLibrary.simpleMessage("التكنولوجيا")
+      };
 }
