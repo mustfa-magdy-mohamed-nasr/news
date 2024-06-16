@@ -14,8 +14,8 @@ class NewsView extends StatelessWidget {
   final ArticleModel articleModel;
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final adjustedHeight = screenHeight - 300;
+    // final screenHeight = MediaQuery.of(context).size.height;
+    // final adjustedHeight = screenHeight - 300;
 
     return SafeArea(
       child: Scaffold(
@@ -54,7 +54,6 @@ class NewsView extends StatelessWidget {
                 top: 280.h,
                 left: 0,
                 right: 0,
-                bottom: -adjustedHeight,
                 child: DetailsCard(articleModel: articleModel),
               ),
               Padding(

@@ -20,7 +20,7 @@ class Category extends StatelessWidget {
             ),
           ),
         ),
-        GridViewBody(),
+        const GridViewBody(),
       ],
     );
   }

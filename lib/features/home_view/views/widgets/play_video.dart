@@ -14,7 +14,7 @@ class PlayVideo extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         final Uri url = Uri.parse(
-            'https://open.spotify.com/episode/71Q9jO0kASP3SLPLwMabZI' ?? '');
+            'https://www.youtube.com/watch?v=5wpp3vFM41U&list=PL5isa5XjlZ5pH8vT0TJO9qZrRiZcrWuDp&index=4');
         launchUrl(url, mode: LaunchMode.inAppBrowserView);
         log('llllll');
       },

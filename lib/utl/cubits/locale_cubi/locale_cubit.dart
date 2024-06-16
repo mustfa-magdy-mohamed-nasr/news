@@ -12,7 +12,6 @@ class ThemeCubit extends Cubit<AppTheme> {
   }
 }
 
-// كونيت الذي يتحكم في اللغة
 class LocaleCubit extends Cubit<Locale> {
   LocaleCubit() : super(Locale('en'));
 

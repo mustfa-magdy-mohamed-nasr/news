@@ -11,7 +11,6 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      //  controller: cubit.controller,
       onSubmitted: (value) {
         var cubit = BlocProvider.of<SearchNewsCubit>(context);
         cubit.searchNews(query: value);

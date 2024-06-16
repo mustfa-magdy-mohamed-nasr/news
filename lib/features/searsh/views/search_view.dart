@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/searsh/views/widgets/no_search_body.dart';
 import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
 import 'package:news/generated/l10n.dart';
@@ -20,20 +21,14 @@ class SearchView extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.only(top: 10.w, right: 10.w, left: 10.w),
               child: Column(
                 children: [
                   BarTitelSubtitle(
                     title: S.of(context).Discover,
                     subtitle: S.of(context).Search_for_news_from,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: CustomTextField(),
-                  ),
+                  const CustomTextField(),
                 ],
               ),
             ),
@@ -66,7 +61,7 @@ class SearchView extends StatelessWidget {
                   ),
                 );
               } else {
-                return  SliverToBoxAdapter(
+                return SliverToBoxAdapter(
                   child: Center(
                     child: Text(S.of(context).Oops),
                   ),

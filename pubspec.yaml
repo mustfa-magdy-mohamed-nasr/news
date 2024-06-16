@@ -34,16 +34,16 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
-  flutter_screenutil: ^5.7.0
-  intl: ^0.18.1 
-  url_launcher: ^6.2.6
   flutter_localizations:
-        sdk: flutter
+    sdk: flutter
+  flutter_native_splash: ^2.4.0
+  flutter_screenutil: ^5.7.0
+  intl: ^0.18.1
+  url_launcher: ^6.2.6
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-    
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

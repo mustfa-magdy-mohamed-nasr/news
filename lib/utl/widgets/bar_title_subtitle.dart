@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BarTitelSubtitle extends StatelessWidget {
@@ -24,7 +25,7 @@ class BarTitelSubtitle extends StatelessWidget {
         SizedBox(
           height: 15.h,
         ),
-        Row(
+        Wrap(
           children: [
             Text(
               subtitle,

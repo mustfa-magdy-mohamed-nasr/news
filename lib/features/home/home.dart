@@ -94,13 +94,7 @@ class _HomeState extends State<Home> {
         drawer: const Drawer(
           child: ChildInDrawer(),
         ),
-        body: RefreshIndicator(
-          onRefresh: () {
-            return BlocProvider.of<GetNewsCubit>(context)
-                .getNews(catagory: 'general');
-          },
-          child: _widgetOptions[_selectedIndex],
-        ),
+        body: _widgetOptions[_selectedIndex],
       ),
     );
   }

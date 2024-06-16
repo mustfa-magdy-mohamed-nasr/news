@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/searsh/views/widgets/popular_card.dart';
@@ -11,20 +12,17 @@ class NoSearchBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(14.w),
+      padding: EdgeInsets.only(top: 5.w, right: 10.w, left: 10.w),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Text(
-                S.of(context).Popular,
-                style:
-                    const TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
-              )
-            ],
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              S.of(context).Popular,
+              style: const TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+            ),
           ),
-          Row(
+          Wrap(
             children: [
               PopularCard(
                 onTap: () {
@@ -41,10 +39,6 @@ class NoSearchBody extends StatelessWidget {
                 },
                 titl: S.of(context).Ceasefire_Talks,
               ),
-            ],
-          ),
-          Row(
-            children: [
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
@@ -59,10 +53,6 @@ class NoSearchBody extends StatelessWidget {
                 },
                 titl: S.of(context).Border_Tensions,
               ),
-            ],
-          ),
-          Row(
-            children: [
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
@@ -77,10 +67,6 @@ class NoSearchBody extends StatelessWidget {
                 },
                 titl: S.of(context).Peace_Efforts,
               ),
-            ],
-          ),
-          Row(
-            children: [
               PopularCard(
                   onTap: () {
                     BlocProvider.of<SearchNewsCubit>(context)
@@ -94,10 +80,6 @@ class NoSearchBody extends StatelessWidget {
                 },
                 titl: S.of(context).Reconstruction,
               ),
-            ],
-          ),
-          Row(
-            children: [
               PopularCard(
                 onTap: () {
                   BlocProvider.of<SearchNewsCubit>(context)
