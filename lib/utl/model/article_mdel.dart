@@ -1,10 +1,21 @@
+import 'package:hive/hive.dart';
+part 'article_mdel.g.dart';
+
+@HiveType(typeId: 1)
 class ArticleModel {
+  @HiveField(0)
   final String? author;
+  @HiveField(1)
   final String? title;
+  @HiveField(2)
   final String? description;
+  @HiveField(3)
   final String? url;
+  @HiveField(4)
   final String? urlToImage;
+  @HiveField(5)
   final String? publishedAt;
+  @HiveField(6)
   final String? content;
 
   ArticleModel({
@@ -18,13 +29,13 @@ class ArticleModel {
   });
   factory ArticleModel.fromJson(json) {
     return ArticleModel(
-      author: json['author']??'Unknown',
-      title: json['title']??'',
-      description: json['description']??'',
+      author: json['author'] ?? 'Unknown',
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
       url: json['url'],
-      urlToImage: json['urlToImage']??'',
-      publishedAt: json['publishedAt']??'',
-      content: json['content']??'',
+      urlToImage: json['urlToImage'] ?? '',
+      publishedAt: json['publishedAt'] ?? '',
+      content: json['content'] ?? '',
     );
   }
 }
