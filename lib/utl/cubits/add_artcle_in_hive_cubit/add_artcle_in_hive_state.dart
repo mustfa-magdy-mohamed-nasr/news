@@ -4,6 +4,7 @@ part of 'add_artcle_in_hive_cubit.dart';
 class AddArtcleInHiveState {}
 
 class AddArtcleInHiveInitial extends AddArtcleInHiveState {}
+class AddArtcleInHiveSuccess extends AddArtcleInHiveState {}
 
 class AddArtcleInHiveLodede extends AddArtcleInHiveState {}
 

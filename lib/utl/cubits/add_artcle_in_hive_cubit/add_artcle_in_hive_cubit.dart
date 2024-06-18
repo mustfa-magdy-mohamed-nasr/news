@@ -1,8 +1,21 @@
 import 'package:bloc/bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:meta/meta.dart';
+import 'package:news/utl/contanit.dart';
+import 'package:news/utl/model/article_mdel.dart';
 
 part 'add_artcle_in_hive_state.dart';
 
 class AddArtcleInHiveCubit extends Cubit<AddArtcleInHiveState> {
   AddArtcleInHiveCubit() : super(AddArtcleInHiveInitial());
+  addArtcle(ArticleModel artcle) async {
+    emit(AddArtcleInHiveLodede());
+    try {
+      var artcalBox = Hive.box<ArticleModel>(kArticleBox);
+      emit(AddArtcleInHiveSuccess());
+      await artcalBox.add(artcle);
+    } catch (e) {
+      emit(AddArtcleInHiveFailuere(errorMessage: e.toString()));
+    }
+  }
 }
