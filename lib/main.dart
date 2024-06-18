@@ -8,12 +8,14 @@ import 'package:news/utl/contanit.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
 import 'package:news/utl/cubits/locale_cubi/locale_cubit.dart';
+import 'package:news/utl/model/article_mdel.dart';
 
 import 'features/home/home.dart';
 
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox(kArticleBox);
+  Hive.registerAdapter(ArticleModelAdapter());
   runApp(const NewsApp());
 }
 
