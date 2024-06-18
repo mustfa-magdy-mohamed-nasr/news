@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:news/generated/l10n.dart';
 import 'package:news/utl/model/article_mdel.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
@@ -41,8 +45,21 @@ class DetailsCard extends StatelessWidget {
           children: [
             SizedBox(height: 10.h),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                GestureDetector(
+                  onTap: () {
+                    // final Uri url = Uri.parse(articleModel.url ?? '');
+                    // launchUrl(url, mode: LaunchMode.inAppBrowserView);
+                    log('============url');
+                  },
+                  child: const Card(
+                      // color: Colors.white,
+                      child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.open_in_browser),
+                  )),
+                ),
                 Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),

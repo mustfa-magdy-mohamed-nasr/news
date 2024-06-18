@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:meta/meta.dart';
@@ -12,8 +14,10 @@ class AddArtcleInHiveCubit extends Cubit<AddArtcleInHiveState> {
     emit(AddArtcleInHiveLodede());
     try {
       var artcalBox = Hive.box<ArticleModel>(kArticleBox);
-      emit(AddArtcleInHiveSuccess());
       await artcalBox.add(artcle);
+      emit(AddArtcleInHiveSuccess());
+
+      log('====================');
     } catch (e) {
       emit(AddArtcleInHiveFailuere(errorMessage: e.toString()));
     }

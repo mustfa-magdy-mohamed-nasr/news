@@ -5,7 +5,7 @@ import 'package:news/utl/model/article_mdel.dart';
 
 class SearchNews {
   final Dio dio;
-  final String apiKey = '0b51ec9f69ea4e96ba13c1b121db5fc0';
+  final String apiKey = 'b7c91bdeacdb460e8d96d92b4b553ae8';
   final String baseUrl = 'https://newsapi.org/v2/everything';
   SearchNews(this.dio);
 //  // https://newsapi.org/v2/everything?q=bitcoin&apiKey=0b51ec9f69ea4e96ba13c1b121db5fc0&sortBy=popularity

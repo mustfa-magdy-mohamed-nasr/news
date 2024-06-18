@@ -14,9 +14,12 @@ import 'package:news/utl/model/article_mdel.dart';
 import 'features/home/home.dart';
 
 void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
-  await Hive.openBox(kArticleBox);
   Hive.registerAdapter(ArticleModelAdapter());
+    await Hive.openBox<ArticleModel>(kArticleBox);
+
   runApp(const NewsApp());
 }
 
