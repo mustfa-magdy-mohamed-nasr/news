@@ -9,7 +9,7 @@ class SaveView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ArtclCubitCubit(),
+      create: (context) => ArtclCubitCubit()..fetchAllArtcle(),
       child: const CustomScrollViewSaveViewBody(),
     );
   }

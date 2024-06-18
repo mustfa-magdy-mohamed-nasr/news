@@ -10,15 +10,11 @@ part 'artcl_cubit_state.dart';
 
 class ArtclCubitCubit extends Cubit<ArtclCubitState> {
   ArtclCubitCubit() : super(ArtclCubitInitial());
+  List<ArticleModel>? artcles;
   fetchAllArtcle() {
-    try {
-      var artcalBox = Hive.box<ArticleModel>(kArticleBox);
-      List<ArticleModel> artcles = artcalBox.values.toList();
-      emit(ArtclCubitSuccsess(artcls: artcles));
+    var artcalBox = Hive.box<ArticleModel>(kArticleBox);
+    artcles = artcalBox.values.toList();
 
-      log('====================');
-    } catch (e) {
-      emit(ArtclCubitFaiulre(errorMessage: e.toString()));
-    }
+    log('====================');
   }
 }
