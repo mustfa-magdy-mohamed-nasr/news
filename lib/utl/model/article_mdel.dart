@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 part 'article_mdel.g.dart';
 
 @HiveType(typeId: 1)
-class ArticleModel {
+class ArticleModel extends HiveObject {
   @HiveField(0)
   final String? author;
   @HiveField(1)

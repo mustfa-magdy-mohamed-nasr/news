@@ -1,9 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:news/generated/l10n.dart';
+import 'package:news/utl/contanit.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
 import 'package:news/utl/cubits/locale_cubi/locale_cubit.dart';
@@ -11,6 +12,8 @@ import 'package:news/utl/cubits/locale_cubi/locale_cubit.dart';
 import 'features/home/home.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(kArticleBox);
   runApp(const NewsApp());
 }
 

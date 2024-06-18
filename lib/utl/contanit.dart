@@ -1,0 +1,1 @@
+const kArticleBox = 'articleBox';
