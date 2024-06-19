@@ -16,7 +16,7 @@ class SliverListCategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final theme = Theme.of(context);
+    final theme = Theme.of(context);
 
     return Positioned(
       top: 150.h,
@@ -43,12 +43,10 @@ class SliverListCategoryView extends StatelessWidget {
                     delegate: SliverChildBuilderDelegate(
                       (context, index) {
                         return ItemSearchView(
-                          articleModel:
-                              newArticleModel[index], 
+                          articleModel: newArticleModel[index],
                         );
                       },
-                      childCount:
-                          newArticleModel.length, 
+                      childCount: newArticleModel.length,
                     ),
                   ),
                 ],

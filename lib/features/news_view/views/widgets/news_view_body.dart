@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/news_view/views/widgets/details_card.dart';
 import 'package:news/utl/cubits/add_artcle_in_hive_cubit/add_artcle_in_hive_cubit.dart';
+import 'package:news/utl/cubits/artcl_cubit_cubit/artcl_cubit_cubit.dart';
 import 'package:news/utl/model/article_mdel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -73,8 +74,9 @@ class NewsViewBody extends StatelessWidget {
                 onTap: () {
                   BlocProvider.of<AddArtcleInHiveCubit>(context)
                       .addArtcle(articleModel);
+
                   articleModel.faverot = true;
-                  //اضافه تعديل هنا لل artcleعشان ال faverot
+                  BlocProvider.of<ArtclCubitCubit>(context).fetchAllArtcle();
                 },
                 child: Card(
                   child: Padding(
@@ -83,10 +85,11 @@ class NewsViewBody extends StatelessWidget {
                         BlocBuilder<AddArtcleInHiveCubit, AddArtcleInHiveState>(
                       builder: (context, state) {
                         return Icon(
-                          articleModel.faverot
+                          articleModel.faverot == true
                               ? Icons.favorite
                               : Icons.favorite_border,
-                          color: articleModel.faverot ? Colors.red : null,
+                          color:
+                              articleModel.faverot == true ? Colors.red : null,
                         );
                       },
                     ),
