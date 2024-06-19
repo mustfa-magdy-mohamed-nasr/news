@@ -83,26 +83,3 @@ class NewsApp extends StatelessWidget {
     );
   }
 }
-/**MultiBlocBuilder(
-        builders: {
-          'theme': (context, themeState) => MaterialApp(
-            title: 'Flutter Theme Demo',
-            theme: themeState == AppTheme.Light
-                ? ThemeData.light()
-                : ThemeData.dark(),
-            home: const Home(),
-          ),
-          'locale': (context, localeState) => MaterialApp(
-            locale: localeState,
-            supportedLocales: const [
-              Locale('en'),
-              Locale('ar'),
-            ],
-            localizationsDelegates: const [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              AppLocalizations.delegate,
-            ],
-            home: const Home(),
-          ), */

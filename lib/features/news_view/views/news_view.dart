@@ -7,8 +7,6 @@ class NewsView extends StatelessWidget {
   final ArticleModel articleModel;
   @override
   Widget build(BuildContext context) {
-    
-    return NewsViewBody(articleModel: articleModel);
+    return SafeArea(child: Scaffold(body: NewsViewBody(articleModel: articleModel)));
   }
 }
-

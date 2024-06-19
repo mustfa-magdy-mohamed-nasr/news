@@ -1,11 +1,10 @@
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:news/utl/model/article_mdel.dart';
 
 class SearchNews {
   final Dio dio;
-  final String apiKey = 'b7c91bdeacdb460e8d96d92b4b553ae8';
+  final String apiKey = '427c2f7261894e3eb9c23b29fc2fcbf0';
   final String baseUrl = 'https://newsapi.org/v2/everything';
   SearchNews(this.dio);
 //  // https://newsapi.org/v2/everything?q=bitcoin&apiKey=0b51ec9f69ea4e96ba13c1b121db5fc0&sortBy=popularity
@@ -28,4 +27,3 @@ class SearchNews {
     }
   }
 }
-//https://newsapi.org/v2/everything?q=Apple&from=2024-05-20&sortBy=popularity&apiKey=API_KEY
