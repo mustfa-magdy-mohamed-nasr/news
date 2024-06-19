@@ -78,6 +78,8 @@ class NewsViewBody extends StatelessWidget {
                       onTap: () {
                         BlocProvider.of<AddArtcleInHiveCubit>(context)
                             .addArtcle(articleModel);
+                        articleModel.faverot = true;
+                        //اضافه تعديل هنا لل artcleعشان ال faverot
                       },
                       child: Card(
                         child: Padding(
@@ -86,12 +88,11 @@ class NewsViewBody extends StatelessWidget {
                               AddArtcleInHiveState>(
                             builder: (context, state) {
                               return Icon(
-                                state is AddArtcleInHiveSuccess
+                                articleModel.faverot
                                     ? Icons.favorite
                                     : Icons.favorite_border,
-                                color: state is AddArtcleInHiveSuccess
-                                    ? Colors.red
-                                    : null,
+                                color: articleModel.faverot ? Colors.red : null,
+                               
                               );
                             },
                           ),

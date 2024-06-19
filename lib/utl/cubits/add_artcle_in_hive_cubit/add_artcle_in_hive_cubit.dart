@@ -10,6 +10,7 @@ part 'add_artcle_in_hive_state.dart';
 
 class AddArtcleInHiveCubit extends Cubit<AddArtcleInHiveState> {
   AddArtcleInHiveCubit() : super(AddArtcleInHiveInitial());
+ 
   addArtcle(ArticleModel artcle) async {
     emit(AddArtcleInHiveLodede());
     try {

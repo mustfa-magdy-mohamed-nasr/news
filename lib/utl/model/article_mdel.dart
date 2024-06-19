@@ -17,7 +17,7 @@ class ArticleModel extends HiveObject {
   final String? publishedAt;
   @HiveField(6)
   final String? content;
-
+  bool faverot = false;
   ArticleModel({
     required this.author,
     required this.title,

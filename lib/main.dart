@@ -6,6 +6,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:news/generated/l10n.dart';
 import 'package:news/utl/contanit.dart';
 import 'package:news/utl/cubits/add_artcle_in_hive_cubit/add_artcle_in_hive_cubit.dart';
+import 'package:news/utl/cubits/artcl_cubit_cubit/artcl_cubit_cubit.dart';
 import 'package:news/utl/cubits/get_category/get_category_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
 import 'package:news/utl/cubits/locale_cubi/locale_cubit.dart';
@@ -35,6 +36,8 @@ class NewsApp extends StatelessWidget {
       builder: (_, child) {
         return MultiBlocProvider(
           providers: [
+            BlocProvider(
+      create: (context) => ArtclCubitCubit()..fetchAllArtcle(),),
             BlocProvider(create:(context)=>AddArtcleInHiveCubit()),
             BlocProvider(
               create: (context) => GetNewsCubit()..getNews(catagory: 'general'),

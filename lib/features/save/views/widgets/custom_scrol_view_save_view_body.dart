@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
+import 'package:news/features/save/views/widgets/item_search_view_sliver_list.dart';
 import 'package:news/utl/cubits/artcl_cubit_cubit/artcl_cubit_cubit.dart';
 import 'package:news/utl/model/article_mdel.dart';
 
@@ -32,9 +32,11 @@ class CustomScrollViewSaveViewBody extends StatelessWidget {
             ),
             SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) {
-              return ItemSearchView(
+              return ItemSearchViewSliverList(
                 articleModel: artcles[index],
-              ); // تمرير حالة النص هنا
+              );
+
+             
             }, childCount: artcles.length)),
           ],
         );

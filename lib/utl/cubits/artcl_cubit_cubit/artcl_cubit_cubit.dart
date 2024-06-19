@@ -15,6 +15,7 @@ class ArtclCubitCubit extends Cubit<ArtclCubitState> {
     var artcalBox = Hive.box<ArticleModel>(kArticleBox);
     artcles = artcalBox.values.toList();
 
-    log('====================');
+    log('====================fetchAllArtcle');
+    emit(ArtclAtateSuccess());
   }
 }
