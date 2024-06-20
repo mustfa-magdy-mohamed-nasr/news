@@ -399,6 +399,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Confirm Delete`
+  String get Confirm_Delete {
+    return Intl.message(
+      'Confirm Delete',
+      name: 'Confirm_Delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this item?`
+  String get Are_you_sure_you_want {
+    return Intl.message(
+      'Are you sure you want to delete this item?',
+      name: 'Are_you_sure_you_want',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get Cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'Cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get Delete {
+    return Intl.message(
+      'Delete',
+      name: 'Delete',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

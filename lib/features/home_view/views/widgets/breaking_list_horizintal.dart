@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/home_view/views/widgets/item_home_view.dart';
+import 'package:news/features/home_view/views/widgets/item_home_view_loading.dart';
 import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
 import 'package:news/utl/cubits/get_news/get_news_state.dart';
 import 'package:news/utl/model/article_mdel.dart';
@@ -37,7 +38,7 @@ class BreakingListHorizintal extends StatelessWidget {
         } else if (state is GetNewsInitial) {
           return const SliverToBoxAdapter(
             child: Center(
-              child: CircularProgressIndicator(),
+              child: ItemHomeViewLoading(),
             ),
           );
         } else {

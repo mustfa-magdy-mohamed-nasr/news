@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:news/generated/l10n.dart';
+import 'package:news/tist.dart';
 import 'package:news/utl/contanit.dart';
 import 'package:news/utl/cubits/add_artcle_in_hive_cubit/add_artcle_in_hive_cubit.dart';
 import 'package:news/utl/cubits/artcl_cubit_cubit/artcl_cubit_cubit.dart';
@@ -72,7 +73,8 @@ class NewsApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                       S.delegate,
                     ],
-                    home: const Home(),
+                    // home: const Home(),
+                    home: const MyWidget(),
                   );
                 },
               );

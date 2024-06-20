@@ -50,16 +50,7 @@ class ItemHomeView extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         color: Colors.grey),
-                    // child: SizedBox(
-                    //   height: 20,
-                    //   width: 20,
-                    //   child: CircularProgressIndicator(
-                    //     value: loadingProgress.expectedTotalBytes != null
-                    //         ? loadingProgress.cumulativeBytesLoaded /
-                    //             loadingProgress.expectedTotalBytes!
-                    //         : null,
-                    //   ),
-                    // ),
+                    
                   );
                 },
                 errorBuilder: (context, error, stackTrace) => Image.asset(
@@ -107,23 +98,4 @@ class ItemHomeView extends StatelessWidget {
     );
   }
 }
- //  CachedNetworkImage(
-              //   imageUrl: imageUrl,
-              //   fit: BoxFit.cover,
-              //   width: 350.w,
-              //   placeholder: (context, url) => const Center(
-              //     child: CircularProgressIndicator(),
-              //   ),
-              //   errorWidget: (context, url, error) => SizedBox(
-              //     height: 20.h,
-              //     child: ClipRRect(
-              //       borderRadius: BorderRadius.circular(20),
-              //       child: Image.asset(
-              //         "assets/images/images.png",
-              //         fit: BoxFit.fill,
-              //         // width: 300.w,
-              //         // height: 300.h,
-              //       ),
-              //     ),
-              //   ),
-              // ),
+ 
