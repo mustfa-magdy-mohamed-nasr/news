@@ -7,6 +7,7 @@ import 'package:news/features/news_view/views/widgets/details_card.dart';
 import 'package:news/utl/cubits/add_artcle_in_hive_cubit/add_artcle_in_hive_cubit.dart';
 import 'package:news/utl/cubits/artcl_cubit_cubit/artcl_cubit_cubit.dart';
 import 'package:news/utl/model/article_mdel.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsViewBody extends StatelessWidget {
@@ -31,8 +32,19 @@ class NewsViewBody extends StatelessWidget {
             fit: BoxFit.fill,
             width: double.infinity,
             height: 350.h,
-            placeholder: (context, url) => const Center(
-              child: CircularProgressIndicator(),
+            placeholder: (context, url) => Shimmer.fromColors(
+              baseColor: Colors.grey,
+              highlightColor: Colors.white,
+              child: SizedBox(
+                width: 300.w,
+                height: 170.h, // Adjust height as needed
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
             ),
             errorWidget: (context, url, error) => SizedBox(
               height: 20.h,

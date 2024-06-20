@@ -1,34 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-// Corrected import path and removed unused imports
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('News App'),
-      ),
-      body: ListView.builder(
-        itemCount: 10, // Replace with your actual item count
-        itemBuilder: (context, index) {
-          return const ItemSearchViewLoading();
-        },
-      ),
-    );
-  }
-}
-
 class ItemSearchViewLoading extends StatelessWidget {
-  const ItemSearchViewLoading({Key? key}) : super(key: key);
+  const ItemSearchViewLoading({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    return SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                       return _itemSearchViewLoading();
+                    },
+                    // childCount: newArticleModel.length,
+                  ),
+                );
+  }
+ 
+
+
+
+   
+  Widget _itemSearchViewLoading() {
     return Padding(
       padding: EdgeInsets.all(8.w),
       child: Card(

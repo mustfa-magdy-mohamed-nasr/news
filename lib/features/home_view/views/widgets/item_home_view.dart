@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/news_view/views/news_view.dart';
 import 'package:news/utl/model/article_mdel.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ItemHomeView extends StatelessWidget {
   const ItemHomeView({
@@ -43,14 +44,19 @@ class ItemHomeView extends StatelessWidget {
                 width: 350.w,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) return child;
-                  return Container(
-                    padding: const EdgeInsets.all(150),
-                    width: 350.w,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        color: Colors.grey),
-                    
+                  return Shimmer.fromColors(
+                    baseColor: Colors.grey,
+                    highlightColor: Colors.white,
+                    child: SizedBox(
+                     width: 350.w,
+                    height: 200.h,// Adjust height as needed
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
                   );
                 },
                 errorBuilder: (context, error, stackTrace) => Image.asset(
@@ -98,4 +104,3 @@ class ItemHomeView extends StatelessWidget {
     );
   }
 }
- 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/news_view/views/news_view.dart';
 import 'package:news/utl/model/article_mdel.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ItemSearchView extends StatelessWidget {
   const ItemSearchView({
@@ -84,12 +85,18 @@ class ItemSearchView extends StatelessWidget {
                       width: 350.w,
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                    loadingProgress.expectedTotalBytes!
-                                : null,
+                        return Shimmer.fromColors(
+                          baseColor: Colors.grey,
+                          highlightColor: Colors.white,
+                          child: SizedBox(
+                            width: 120.w,
+                            height: 100.h, // Adjust height as needed
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: Colors.grey,
+                              ),
+                            ),
                           ),
                         );
                       },

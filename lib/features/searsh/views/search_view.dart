@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news/features/searsh/views/widgets/item_Search_view_loading.dart';
 import 'package:news/features/searsh/views/widgets/no_search_body.dart';
 import 'package:news/features/searsh/views/widgets/item_Search_view.dart';
 import 'package:news/generated/l10n.dart';
@@ -55,11 +56,7 @@ class SearchView extends StatelessWidget {
                   ),
                 );
               } else if (state is GetCategoryLoading) {
-                return const SliverToBoxAdapter(
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
+                return const ItemSearchViewLoading();
               } else {
                 return SliverToBoxAdapter(
                   child: Center(
