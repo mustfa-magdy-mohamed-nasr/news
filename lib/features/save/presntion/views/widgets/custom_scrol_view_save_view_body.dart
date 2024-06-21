@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:news/features/save/presntion/views/widgets/item_search_view_sliver_list.dart';
 import 'package:news/features/save/presntion/view_model/cubit/fetch_all_artcle_cubit/artcl_cubit_cubit.dart';
 import 'package:news/features/home/data/model/article_mdel.dart';
@@ -19,13 +21,20 @@ class CustomScrollViewSaveViewBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/images/undraw.png'),
-                Text(
-                  S.of(context).No_Items_Available, // استخدم التعريب للرسالة
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                SvgPicture.asset(
+                  'assets/images/no save.svg',
+                  fit: BoxFit.cover,
+                  width: MediaQuery.of(context).size.width - 50.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.all(20.w),
+                  child: Text(
+                    S.of(context).No_Items_Available, // استخدم التعريب للرسالة
+                    style: const TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
                   ),
                 ),
               ],
