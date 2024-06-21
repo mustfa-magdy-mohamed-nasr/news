@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
           screens: screens,
           items: navBarsItems(),
           confineInSafeArea: true,
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           handleAndroidBackButtonPress: true,
           resizeToAvoidBottomInset: true,
           stateManagement: true,
