@@ -74,8 +74,8 @@ class NewsApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                       S.delegate,
                     ],
-                    // home: const Home(),
                     home: const Home(),
+                    // home: const Home(),
                   );
                 },
               );

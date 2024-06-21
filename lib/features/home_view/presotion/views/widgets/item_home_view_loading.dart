@@ -9,11 +9,16 @@ class ItemHomeViewLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) {
-        return _itemHomeViewLoading();
-      },
-    );
+    return SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                       return _itemHomeViewLoading();
+                    },
+                    // childCount: newArticleModel.length,
+                  ),
+                );
+  }
+ 
   }
 
   Widget _itemHomeViewLoading() {
@@ -48,4 +53,4 @@ class ItemHomeViewLoading extends StatelessWidget {
       ),
     );
   }
-}
+

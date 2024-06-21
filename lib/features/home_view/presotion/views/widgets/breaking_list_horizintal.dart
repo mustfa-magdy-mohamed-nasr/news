@@ -21,10 +21,12 @@ class BreakingListHorizintal extends StatelessWidget {
           );
         }
       },
-   builder   : (context, state) {
+      builder: (context, state) {
         List<ArticleModel> articaleModel =
             BlocProvider.of<GetNewsCubit>(context).articleModel;
-        if (state is GetNewsLoaded) {
+        if (state is GetNewsLoading) {
+          return const ItemHomeViewLoading();
+        } else if (state is GetNewsLoaded) {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
@@ -36,11 +38,7 @@ class BreakingListHorizintal extends StatelessWidget {
             ),
           );
         } else if (state is GetNewsInitial) {
-          return const SliverToBoxAdapter(
-            child: Center(
-              child: ItemHomeViewLoading(),
-            ),
-          );
+          return const ItemHomeViewLoading();
         } else {
           return const SliverToBoxAdapter(
             child: Center(

@@ -38,32 +38,31 @@ class ItemHomeView extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
+              child: CachedNetworkImage(
+                imageUrl: articleModel.urlToImage ?? '',
+                fit: BoxFit.fill,
                 width: 350.w,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return Shimmer.fromColors(
-                    baseColor: Colors.grey,
-                    highlightColor: Colors.white,
-                    child: SizedBox(
-                     width: 350.w,
-                    height: 200.h,// Adjust height as needed
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: Colors.grey,
-                        ),
+                placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: Colors.grey,
+                  highlightColor: Colors.white,
+                  child: SizedBox(
+                    width: 300.w,
+                    height: 170.h, // Adjust height as needed
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.grey,
                       ),
                     ),
-                  );
-                },
-                errorBuilder: (context, error, stackTrace) => Image.asset(
-                  "assets/images/images.png",
-                  fit: BoxFit.fill,
-                  width: 300.w,
-                  height: 170.h,
+                  ),
+                ),
+                errorWidget: (context, url, error) => ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    "assets/images/images.png",
+                    fit: BoxFit.fill,
+                    width: 300.w,
+                    height: 170.h,
+                  ),
                 ),
               ),
             ),

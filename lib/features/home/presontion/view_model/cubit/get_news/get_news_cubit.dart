@@ -13,6 +13,8 @@ class GetNewsCubit extends Cubit<GetNewsState> {
   List<ArticleModel> articleModel = [];
   Future<void> getNews({required String catagory}) async {
     try {
+              emit(GetNewsLoading());
+
       NewsServises newsServises = NewsServises(Dio());
 
       articleModel = await newsServises.getNews(category: catagory);
@@ -25,16 +27,3 @@ class GetNewsCubit extends Cubit<GetNewsState> {
 
   
 }
-/**
- *getNews({required String category}) async {
-    try {
-      NewsServises newsServises = NewsServises(Dio());
-      late List<ArticleModel> articleModel;
-      articleModel = await newsServises.getNews(category: category);
-      emit(GetNewsLoaded(articleModel));
-    } catch (e) {
-      emit(GetNewsFailure(errorMessage: e.toString()));
-    }
-  }
-}
- */
