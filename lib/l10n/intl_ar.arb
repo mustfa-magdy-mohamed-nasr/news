@@ -32,6 +32,15 @@
     "Diplomatic_Responses":"الردود الدبلوماسية",
     "COVID_Cure":"علاج كورونا",
     "search":"بحث",
-    "Language":"English"
+    "Language":"English",
+    "Confirm_Delete":"تأكيد الحذف",
+    "Are_you_sure_you_want":"هل أنت متأكد أنك تريد حذف هذا العنصر؟",
+    "Cancel":"إلغاء",
+    "Delete":"حذف",
+    "All_Item":"كل العناصر..."
+
+
+
+
 
 }

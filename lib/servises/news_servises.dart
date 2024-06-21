@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:news/utl/model/article_mdel.dart';
+import 'package:news/features/home/data/model/article_mdel.dart';
 
 class NewsServises {
   final Dio dio;
-  final String apiKey = '427c2f7261894e3eb9c23b29fc2fcbf0';
+  final String apiKey = '0a2457e4285947578dedd5fe63042403';
   final String baseUrl = 'https://newsapi.org/v2/top-headlines';
   NewsServises(this.dio);
   Future<List<ArticleModel>> getNews({required String category}) async {

@@ -23,15 +23,21 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Airstrikes": MessageLookupByLibrary.simpleMessage("الغارات الجوية"),
+        "All_Item": MessageLookupByLibrary.simpleMessage("كل العناصر..."),
+        "Are_you_sure_you_want": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد حذف هذا العنصر؟"),
         "Author": MessageLookupByLibrary.simpleMessage("الكاتب:"),
         "Border_Tensions":
             MessageLookupByLibrary.simpleMessage("توترات الحدود"),
         "COVID_Cure": MessageLookupByLibrary.simpleMessage("علاج كورونا"),
+        "Cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "Category": MessageLookupByLibrary.simpleMessage("التصنيف"),
         "Ceasefire_Talks":
             MessageLookupByLibrary.simpleMessage("محادثات وقف إطلاق النار"),
         "Civilian_Casualties":
             MessageLookupByLibrary.simpleMessage("ضحايا مدنيين"),
+        "Confirm_Delete": MessageLookupByLibrary.simpleMessage("تأكيد الحذف"),
+        "Delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "Diplomatic_Responses":
             MessageLookupByLibrary.simpleMessage("الردود الدبلوماسية"),
         "Discover": MessageLookupByLibrary.simpleMessage("اكتشف"),
