@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/news_view/views/widgets/details_card.dart';
@@ -39,8 +38,7 @@ class NewsViewBody extends StatelessWidget {
                 width: 300.w,
                 height: 170.h, // Adjust height as needed
                 child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                  decoration: const BoxDecoration(
                     color: Colors.grey,
                   ),
                 ),

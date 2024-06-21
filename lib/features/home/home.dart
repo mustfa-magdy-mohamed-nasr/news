@@ -1,100 +1,86 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/features/home/widgets/child_in_drawer.dart';
 import 'package:news/features/home_view/views/home_view.dart';
 import 'package:news/features/searsh/views/search_view.dart';
 import 'package:news/generated/l10n.dart';
-import 'package:news/utl/cubits/get_news/get_news_cubit.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import '../category/category.dart';
 import '../save/views/save_view.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int _selectedIndex = 0;
-  List<String> titl = [];
-
-  static final List<Widget> _widgetOptions = <Widget>[
-    const HomeView(),
-    const SearchView(),
-    const SaveView(),
-    const Category(),
-  ];
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    titl = [
-      S.of(context).Home,
-      S.of(context).Search,
-      S.of(context).Saved,
-      S.of(context).Category,
-    ];
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    List<Widget> screens = [
+      const HomeView(),
+      const SearchView(),
+      const SaveView(),
+      const Category(),
+    ];
+
+    List<PersistentBottomNavBarItem> navBarsItems() {
+      return [
+        PersistentBottomNavBarItem(
+          icon: const Icon(Icons.home_outlined),
+          title: S.of(context).Home,
+          activeColorPrimary: Colors.blue,
+          inactiveColorPrimary: Colors.grey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: const Icon(Icons.search_sharp),
+          title: S.of(context).Search,
+          activeColorPrimary: Colors.blue,
+          inactiveColorPrimary: Colors.grey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: const Icon(Icons.turned_in_not_outlined),
+          title: S.of(context).Saved,
+          activeColorPrimary: Colors.blue,
+          inactiveColorPrimary: Colors.grey,
+        ),
+        PersistentBottomNavBarItem(
+          icon: const Icon(Icons.category_outlined),
+          title: S.of(context).Category,
+          activeColorPrimary: Colors.blue,
+          inactiveColorPrimary: Colors.grey,
+        ),
+      ];
+    }
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.scaffoldBackgroundColor,
-        bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.blue, // لون العنصر المحدد
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-                color: theme.iconTheme.color,
-              ),
-              label: S.of(context).Home,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search_sharp,
-                color: theme.iconTheme.color,
-              ),
-              label: S.of(context).Search,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.turned_in_not_outlined,
-                color: theme.iconTheme.color,
-              ),
-              label: S.of(context).Saved,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.category_outlined,
-                color: theme.iconTheme.color,
-              ),
-              label: S.of(context).Category,
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: (value) {
-            setState(() {
-              _selectedIndex = value;
-            });
-          },
-        ),
-        appBar: AppBar(
-          backgroundColor: theme.appBarTheme.backgroundColor,
-          centerTitle: true,
-          title: Text(
-            titl[_selectedIndex],
-            style: theme.appBarTheme.titleTextStyle,
-          ),
-        ),
         drawer: const Drawer(
           child: ChildInDrawer(),
         ),
-        body: _widgetOptions[_selectedIndex],
+        body: PersistentTabView(
+          context,
+          controller: PersistentTabController(initialIndex: 0),
+          screens: screens,
+          items: navBarsItems(),
+          confineInSafeArea: true,
+          backgroundColor: Colors.white,
+          handleAndroidBackButtonPress: true,
+          resizeToAvoidBottomInset: true,
+          stateManagement: true,
+          hideNavigationBarWhenKeyboardShows: true,
+          decoration: NavBarDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            colorBehindNavBar: Colors.white,
+          ),
+          popAllScreensOnTapOfSelectedTab: true,
+          popActionScreens: PopActionScreensType.all,
+          itemAnimationProperties: const ItemAnimationProperties(
+            duration: Duration(milliseconds: 200),
+            curve: Curves.ease,
+          ),
+          screenTransitionAnimation: const ScreenTransitionAnimation(
+            animateTabTransition: true,
+            curve: Curves.ease,
+            duration: Duration(milliseconds: 150),
+          ),
+          navBarStyle: NavBarStyle.style6, // اختيار نمط البار السفلي حسب الحاجة
+        ),
       ),
     );
   }

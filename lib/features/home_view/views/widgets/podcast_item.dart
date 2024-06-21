@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/features/home_view/views/widgets/play_video.dart';
 import 'package:news/generated/l10n.dart';
@@ -32,8 +33,8 @@ class PodcastItem extends StatelessWidget {
           Positioned(top: 100.h, left: 140.w, child: const PlayVideo()),
           Positioned(
             top: 10.h,
-            left: 10.w,
-            right: 10.w,
+            left: 50.w,
+            right: 50.w,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -70,6 +71,24 @@ class PodcastItem extends StatelessWidget {
                           fontSize: 20.sp),
                     )),
               )),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Card(
+                color: const Color.fromRGBO(255, 255, 255, 0.5),
+                child: IconButton(
+                    icon: Icon(
+                      Icons.menu,
+                      color: Colors.grey[800],
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    }),
+              ),
+            ),
+          ),
         ],
       ),
     );

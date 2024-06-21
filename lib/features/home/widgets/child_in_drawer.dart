@@ -25,11 +25,11 @@ class ChildInDrawer extends StatelessWidget {
             context.read<ThemeCubit>().toggleTheme();
           },
         ),
-        const CardListTileSwitch(
-          icon: Icons.change_circle_outlined,
-          isSwitched: true,
-          title: 'Change City',
-        ),
+        // const CardListTileSwitch(
+        //   icon: Icons.change_circle_outlined,
+        //   isSwitched: true,
+        //   title: 'Change City',
+        // ),
         const CardAboutApp(),
       ],
     );
