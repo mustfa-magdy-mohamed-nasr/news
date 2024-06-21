@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Humanitarian_Aid":
             MessageLookupByLibrary.simpleMessage("المساعدات الإنسانية"),
         "Language": MessageLookupByLibrary.simpleMessage("English"),
+        "No_Items_Available":
+            MessageLookupByLibrary.simpleMessage("لا توجد عناصر متاحة"),
         "Oops": MessageLookupByLibrary.simpleMessage("أوبس"),
         "Osama_Al_Zero": MessageLookupByLibrary.simpleMessage(
             "أشهر مبرمج عربي، لم يدرس البرمجة | أسامة الزيرو"),

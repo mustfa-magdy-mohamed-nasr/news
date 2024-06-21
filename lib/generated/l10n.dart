@@ -449,6 +449,16 @@ class S {
       args: [],
     );
   }
+
+  /// `No Items Available`
+  String get No_Items_Available {
+    return Intl.message(
+      'No Items Available',
+      name: 'No_Items_Available',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

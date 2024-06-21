@@ -38,6 +38,7 @@
     "Are_you_sure_you_want":"Are you sure you want to delete this item?",
     "Cancel":"Cancel",
     "Delete":"Delete",
-    "All_Item":"All Item..."
+    "All_Item":"All Item...",
+    "No_Items_Available":"No Items Available"
 
 }

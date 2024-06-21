@@ -6,4 +6,4 @@ class ArtclCubitState {}
 class ArtclCubitInitial extends ArtclCubitState {}
 class ArtclAtateSuccess extends ArtclCubitState {}
 
-
+class ArtclStateEmpty extends ArtclCubitState {}
